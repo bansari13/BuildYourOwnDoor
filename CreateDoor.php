@@ -15,7 +15,7 @@
                                     <div id="owl1" class="owl-carousel owl-theme">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <a href="#">
+                                                <a onclick="getImage('images/Abby_Door design-01.png')">
                                                     <img src="images/Abby_Door design-01.png" class="img-responsive" alt="Image" />
                                                 </a>
                                             </div>
@@ -127,7 +127,7 @@
                                     <div id="owl2" class="owl-carousel owl-theme">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <a href="#">
+                                                <a onclick="getImage('images/Abby_Door design-04(1).png')">
                                                     <img src="images/Abby_Door design-04(1).png" class="img-responsive" alt="Image" />
                                                 </a>
                                             </div>
@@ -239,10 +239,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-7">
-
-                        <canvas>
-                        </canvas>
+                    <div class="col-sm-7 containerStyle" id="container">
+                        
                     </div>
                     <div class="col-sm-2">
                         <div class="reminder">
@@ -253,5 +251,6 @@
             </div>
         </div>
     </section>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/konva/7.1.3/konva.min.js"></script>
+<script src="js/CreateDoor.js"></script>
 <?php include('Footer.php'); ?>
