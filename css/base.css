@@ -40,7 +40,7 @@ label a:hover, label a:focus{color: #fff;transition: 0.3s;}
 .nav-links a:hover {color: #fff; transition: 0.3s;}
 
 /*Steps*/
-.steps{border: 2px solid #b38c4d; padding: 20px; background-color: #fff;}
+.steps{height: 658px;border: 2px solid #b38c4d; padding: 20px; background-color: #fff;}
 .steps h1{color: #b38c4d; text-align: center;}
 .steps h1:after{margin: 12px auto;}
 .steps h2{color: #fff; font-size: 20px; margin-bottom: 20px; text-align: center; background-color: #b38c4d; padding: 5px 0;}

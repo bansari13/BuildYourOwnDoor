@@ -36,9 +36,9 @@
                     <span class='menu wow fadeIn'><span class='hamburger'></span></span>
                     <ul>
                         <li><a href='https://www.wroughtironshop.com.au/'>Back to Website</a> </li>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href='userprofile.html'>My Profile</a> </li>
-                        <li><a href="login.html">Login</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href='UserProfile.php'>My Profile</a> </li>
+                        <li><a href="index.php">Login</a></li>
                     </ul>
                 </label>
             </div>
@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="send text-center">
-                                            <button type="submit" class="contactbtn">Register Now</button>
+                                            <a class="contactbtn" href="CreateDoor.php">Register Now</a>
                                         </div>
                                     </div>
                                 </div>

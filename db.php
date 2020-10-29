@@ -4,6 +4,6 @@ $conn = mysqli_connect(
   'localhost',
   'root',
   'root',
-  'wroughtirondb'
+  'buildyourowndoor'
 ) or die(mysqli_erro($mysqli));
 ?>
