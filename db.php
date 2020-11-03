@@ -1,9 +1,9 @@
 <?php
 session_start();
 $conn = mysqli_connect(
-  'localhost',
-  'root',
-  'root',
-  'buildyourowndoor'
+  'wroughtironshop.com.au',
+  'luxurzx2_admin',
+  'admin',
+  'luxurzx2_buildyourowndoor'
 ) or die(mysqli_erro($mysqli));
 ?>

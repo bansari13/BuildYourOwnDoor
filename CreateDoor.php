@@ -18,8 +18,8 @@
                                             while ($row = mysqli_fetch_assoc($result_tasks)) {
                                                 ?>
                                             <div class="col-sm-6">
-                                                <a onclick="getFrame('images/<?php echo $row['Image']; ?>','<?php echo $row['ID']; ?>')">
-                                                    <img src="images/<?php echo $row['Image'] ?>" class="img-responsive" alt="Image" />
+                                                <a onclick="getFrame('images/Frames/<?php echo $row['Image']; ?>','<?php echo $row['ID']; ?>')">
+                                                    <img src="images/Frames/<?php echo $row['Image'] ?>" class="img-responsive" alt="Image" />
                                                 </a>
                                             </div>
                                             <?php } ?>
@@ -73,8 +73,8 @@
                     <div class="col-sm-7 containerStyle" id="container">
                         
                     </div>
-                    <div class="col-sm-2" id="reminderText">
-                        <div class="reminder"></div>
+                    <div class="col-sm-2">
+                        <div class="reminder" id="reminderText"></div>
                     </div>
                 </div>
             </div>

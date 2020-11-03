@@ -8,13 +8,13 @@
                 <div class="row">
                     <?php
                     if (isset($_COOKIE["FrameID"])) {
-                        $query = "SELECT * FROM designs where FrameID=" . $_COOKIE["FrameID"];
+                        $query = "SELECT * FROM Designs where FrameID=" . $_COOKIE["FrameID"];
                         $result_tasks = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_assoc($result_tasks)) {
                             ?>
                             <div class="col-sm-6">
-                                <a onclick="getDesign('images/<?php echo $row['Image']; ?>','<?php echo $row['ID']; ?>')">
-                                    <img src="images/<?php echo $row['Image']; ?>" class="img-responsive" alt="Image" />
+                                <a onclick="getDesign('images/Designs/<?php echo $row['Image']; ?>','<?php echo $row['ID']; ?>')">
+                                    <img src="images/Designs/<?php echo $row['Image']; ?>" class="img-responsive" alt="Image" />
                                 </a>
                             </div>
                         <?php }

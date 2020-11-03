@@ -1,7 +1,7 @@
 <?php include('db.php'); ?>
 <?php
 if (isset($_COOKIE["DesignID"])) {
-    $query = "SELECT * FROM designs where ID=" . $_COOKIE["DesignID"];
+    $query = "SELECT * FROM Designs where ID=" . $_COOKIE["DesignID"];
     $result_tasks = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($result_tasks)) {
         if ($row['ReminderText'] != NULL) {
