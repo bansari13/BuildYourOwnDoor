@@ -7,7 +7,7 @@
             items: 1,
             pagination: true,
             paginationSpeed: 150,
-            itemsMobile: [480, 1],
+            itemsMobile: [479, 2],
             itemsDesktopSmall: [980, 1],
             itemsTablet: [768, 1],
         });
@@ -18,7 +18,7 @@
             items: 1,
             pagination: true,
             paginationSpeed: 150,
-            itemsMobile: [480, 1],
+            itemsMobile: [479, 2],
             itemsDesktopSmall: [980, 1],
             itemsTablet: [768, 1],
         });

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wroughtiron Shop</title>
     <link href="images/favicon.ico" type="image/png" rel="shortcut icon" />
-    <link href="css/owl.theme.css" rel="stylesheet" />
     <link href="css/owl.carousel.css" rel="stylesheet" />
+    <link href="css/owl.theme.css" rel="stylesheet" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">

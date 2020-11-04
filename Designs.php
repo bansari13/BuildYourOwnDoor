@@ -26,7 +26,7 @@
         <br />
         <a onclick="go()" href="#">New Link</a>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-xs-6">
                 <a href="#">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="20px" height="20px" viewBox="0 0 284.929 284.929" style="enable-background:new 0 0 284.929 284.929;"
@@ -46,7 +46,7 @@
                     </svg>
                 </a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-xs-6">
                 <a href="#">
                     <svg style="float: right;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="20px" height="20px" viewBox="0 0 284.936 284.936" style="enable-background:new 0 0 284.936 284.936;"
