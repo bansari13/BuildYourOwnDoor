@@ -12,7 +12,7 @@
                         $result_tasks = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_assoc($result_tasks)) {
                             ?>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 col-xs-6 col-md-6">
                                 <a onclick="getDesign('images/Designs/<?php echo $row['Image']; ?>','<?php echo $row['ID']; ?>')">
                                     <img src="images/Designs/<?php echo $row['Image']; ?>" class="img-responsive" alt="Image" />
                                 </a>
@@ -69,6 +69,4 @@
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/konva/7.1.3/konva.min.js"></script>
-<script src="js/CreateDoor.js"></script>
 

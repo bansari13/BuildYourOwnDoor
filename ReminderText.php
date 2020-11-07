@@ -15,5 +15,3 @@ if (isset($_COOKIE["DesignID"])) {
     }
 }
 ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/konva/7.1.3/konva.min.js"></script>
-<script src="js/CreateDoor.js"></script>

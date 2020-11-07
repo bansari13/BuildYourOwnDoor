@@ -1,4 +1,34 @@
-var stage;
+var stage, screenSize, imageStartX, imageStartY, imageWidth, imageHeight;
+screenSize = $(window).width();
+$(document).ready(function () {
+    //Small Mobile
+    if (screenSize<=400)
+    {
+
+    } 
+    //Tablet
+    else if (screenSize > 400 && screenSize <= 768)
+    {
+
+    } 
+    
+    //
+    else if (screenSize > 768 && screenSize <= 1024)
+    {
+        imageStartX = 150;
+        imageStartY = 35;
+        imageWidth = 450;
+        imageHeight = 600;
+
+    } else if (screenSize > 1024 && screenSize <= 1440)
+    {
+        imageStartX = 150;
+        imageStartY = 35;
+        imageWidth = 450;
+        imageHeight = 600;
+    }
+});
+
 function getFrame(path, id)
 {
     stage = new Konva.Stage({
@@ -10,13 +40,14 @@ function getFrame(path, id)
     stage.add(layer);
     // main API:
     var imageObj = new Image();
+
     imageObj.onload = function () {
         var yoda = new Konva.Image({
-            x: 150,
-            y: 35,
+            x: imageStartX,
+            y: imageStartY,
             image: imageObj,
-            width: 450,
-            height: 600,
+            width: imageWidth,
+            height: imageHeight
         });
 
         // add the shape to the layer
@@ -68,7 +99,7 @@ function createCompositedCanvas(img1, img2) {
     // use blending mode lighter so that all the dimensions are preserved
     ctx.globalCompositeOperation = "lighter";
     // draw sofa on top
-    ctx.drawImage(img1, 0, 0, canvas.width , canvas.height );
+    ctx.drawImage(img1, 0, 0, canvas.width, canvas.height);
     // use composition mode destination-in to draw a cut-out sofa
     ctx.globalCompositeOperation = "destination-in";
     // draw to cut-out sofa
@@ -83,7 +114,7 @@ function createCompositedCanvas(img1, img2) {
     ctx.globalCompositeOperation = "destination-in";
     // draw to cut-out sofa
     ctx.drawImage(img1, 0, 0, canvas.width, canvas.height);
-    
+
     //document.body.appendChild(canvas);
     return (canvas);
 }
