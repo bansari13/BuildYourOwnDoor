@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3 col-sm-4">
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                         <img src="images/logo.png" class="img-responsive" alt="Company Logo" />
                     </a>
                 </div>
@@ -38,9 +38,9 @@
                     <span class='menu wow fadeIn'><span class='hamburger'></span></span>
                     <ul>
                         <li><a href='https://www.wroughtironshop.com.au/'>Back to Website</a> </li>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href='userprofile.html'>My Profile</a> </li>
-                        <li><a href="login.html">Login</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href='userprofile.php'>My Profile</a> </li>
+                        <li><a href="login.php">Login</a></li>
                     </ul>
                 </label>
             </div>

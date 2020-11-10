@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row" id="mainContainer">
                     <div id="step1" style="display: block;">
-                        <div class="col-sm-3">
+                        <div class="col-md-3 col-sm-4">
                             <div class="steps">
                                 <h1>Step 1 : Select Frame</h1>
                                 <div class="gold-box">
@@ -70,10 +70,11 @@
                     <div id="step2" style="display: none;">
                         
                     </div>
-                    <div class="col-sm-7 containerStyle" id="container">
-                        
+                    <div class="col-md-7 col-sm-8">
+                        <div class="containerStyle" id="container">
+						</div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2 col-sm-12">
                         <div class="reminder" id="reminderText"></div>
                     </div>
                 </div>
