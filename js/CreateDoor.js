@@ -1,26 +1,36 @@
 var stage, screenSize, imageStartX, imageStartY, imageWidth, imageHeight;
 screenSize = $(window).width();
 $(document).ready(function () {
+    
     //Small Mobile
     if (screenSize<=400)
-    {
-
-    } 
-    //Tablet
-    else if (screenSize > 400 && screenSize <= 768)
-    {
-
-    } 
-    
-    //
-    else if (screenSize > 768 && screenSize <= 1024)
     {
         imageStartX = 150;
         imageStartY = 35;
         imageWidth = 450;
         imageHeight = 600;
-
-    } else if (screenSize > 1024 && screenSize <= 1440)
+    } 
+    
+    //Tablet
+    else if (screenSize > 400 && screenSize <= 768)
+    {
+        imageStartX = 150;
+        imageStartY = 35;
+        imageWidth = 450;
+        imageHeight = 600;
+    } 
+    
+    //Small Laptop
+    else if (screenSize > 768 && screenSize <= 1024)
+    {
+        imageStartX = 150;
+        imageStartY = 35;
+        imageWidth = 220;
+        imageHeight = 300;
+    } 
+    
+    //Large Laptop
+    else if (screenSize > 1024 && screenSize <= 1440)
     {
         imageStartX = 150;
         imageStartY = 35;

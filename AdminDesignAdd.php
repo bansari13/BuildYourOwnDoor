@@ -29,7 +29,7 @@ if (isset($_POST['update'])) {
         }
 
         if (empty($errors) == true) {
-            $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+            $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
             move_uploaded_file($file_tmp, "images/Designs/" . $newfilename);
             $ReminderText = $_POST['DFlatTopReminderText'];
             $query = "INSERT INTO Designs (FrameID,Image,ReminderText,DoorID) values ('1','$newfilename','$ReminderText','$DoorID')";
@@ -54,7 +54,7 @@ if (isset($_POST['update'])) {
                 }
 
                 if (empty($errors) == true) {
-                    $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+                    $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
                     move_uploaded_file($file_tmp, "images/FullFrames/" . $newfilename);
 
                     $query = "INSERT INTO FullDoor (FrameID,DoorID,Image) values ('1','$DoorID','$newfilename')";
@@ -87,7 +87,7 @@ if (isset($_POST['update'])) {
         }
 
         if (empty($errors) == true) {
-            $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+            $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
             move_uploaded_file($file_tmp, "images/Designs/" . $newfilename);
             $ReminderText = $_POST['DRoundTopReminderText'];
             $query = "INSERT INTO Designs (FrameID,Image,ReminderText,DoorID) values ('3','$newfilename','$ReminderText','$DoorID')";
@@ -112,7 +112,7 @@ if (isset($_POST['update'])) {
                 }
 
                 if (empty($errors) == true) {
-                    $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+                    $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
                     move_uploaded_file($file_tmp, "images/FullFrames/" . $newfilename);
 
                     $title = $_POST['Name'];
@@ -146,7 +146,7 @@ if (isset($_POST['update'])) {
         }
 
         if (empty($errors) == true) {
-            $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+            $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
             move_uploaded_file($file_tmp, "images/Designs/" . $newfilename);
             $ReminderText = $_POST['DEyebrowTopReminderText'];
             $query = "INSERT INTO Designs (FrameID,Image,ReminderText,DoorID) values ('2','$newfilename','$ReminderText','$DoorID')";
@@ -171,7 +171,7 @@ if (isset($_POST['update'])) {
                 }
 
                 if (empty($errors) == true) {
-                    $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+                    $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
                     move_uploaded_file($file_tmp, "images/FullFrames/" . $newfilename);
 
                     $query = "INSERT INTO FullDoor (FrameID,DoorID,Image) values ('2','$DoorID','$newfilename')";
@@ -204,7 +204,7 @@ if (isset($_POST['update'])) {
         }
 
         if (empty($errors) == true) {
-            $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+            $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
             move_uploaded_file($file_tmp, "images/Designs/" . $newfilename);
 
             $ReminderText = $_POST['SFlatTopReminderText'];
@@ -230,7 +230,7 @@ if (isset($_POST['update'])) {
                 }
 
                 if (empty($errors) == true) {
-                    $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+                    $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
                     move_uploaded_file($file_tmp, "images/FullFrames/" . $newfilename);
 
                     $query = "INSERT INTO FullDoor (FrameID,DoorID,Image) values ('4','$DoorID','$newfilename')";
@@ -263,7 +263,7 @@ if (isset($_POST['update'])) {
         }
 
         if (empty($errors) == true) {
-            $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+            $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
             move_uploaded_file($file_tmp, "images/Designs/" . $newfilename);
 
             $ReminderText = $_POST['SRoundTopReminderText'];
@@ -289,7 +289,7 @@ if (isset($_POST['update'])) {
                 }
 
                 if (empty($errors) == true) {
-                    $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+                    $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
                     move_uploaded_file($file_tmp, "images/FullFrames/" . $newfilename);
 
                     $query = "INSERT INTO FullDoor (FrameID,DoorID,Image) values ('6','$DoorID','$newfilename')";
@@ -322,7 +322,7 @@ if (isset($_POST['update'])) {
         }
 
         if (empty($errors) == true) {
-            $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+            $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
             move_uploaded_file($file_tmp, "images/Designs/" . $newfilename);
 
             $ReminderText = $_POST['SEyebrowTopReminderText'];
@@ -348,7 +348,7 @@ if (isset($_POST['update'])) {
                 }
 
                 if (empty($errors) == true) {
-                    $newfilename = time().uniqid(rand()) . '.' . $file_ext;
+                    $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
                     move_uploaded_file($file_tmp, "images/FullFrames/" . $newfilename);
 
                     $query = "INSERT INTO FullDoor (FrameID,DoorID,Image) values ('5','$DoorID','$newfilename')";
@@ -407,22 +407,22 @@ if (isset($_POST['update'])) {
                                 </div>
                             </div>
                             <div class="form-group row">
-                                    <div class="col-sm-6">
+                                <div class="col-sm-6">
 
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Single Design</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="SFlatTopDesign" />
-                                        </div>
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Single Design</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="SFlatTopDesign" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="SFlatTopReminderText" class="form-control">
                                     </div>
 
-                                    <div class="col-sm-6">
-
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="SFlatTopReminderText" class="form-control">
-                                        </div>
-
-                                    </div>
+                                </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6">
@@ -437,133 +437,133 @@ if (isset($_POST['update'])) {
                             <div class="form-group row">
 
                                 <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Single Design</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="SRoundTopDesign" />
-                                        </div>
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Single Design</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="SRoundTopDesign" />
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="SRoundTopReminderText" class="form-control">
-                                        </div>
-
-                                </div>
-
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Single Full</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="SRoundTopFull" />
-                                        </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Single Design</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="SEyebrowTopDesign" />
-                                        </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="SEyebrowTopReminderText" class="form-control">
-                                        </div>
-                                </div>
-
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Single Full</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="SEyebrowTopFull" />
-                                        </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Double Design</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="DFlatTopDesign" />
-                                        </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="DFlatTopReminderText" class="form-control">
-                                        </div>
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="SRoundTopReminderText" class="form-control">
+                                    </div>
 
                                 </div>
 
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Double Full</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="DFlatTopFull" />
-                                        </div>
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Single Full</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="SRoundTopFull" />
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-group row">
 
                                 <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Double Design</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="DRoundTopDesign" />
-                                        </div>
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Single Design</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="SEyebrowTopDesign" />
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="DRoundTopReminderText" class="form-control">
-                                        </div>
-                                </div>
-
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Double Full</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="DRoundTopFull" />
-                                        </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Double Design</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="DEyebrowTopDesign" />
-                                        </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="DEyebrowTopReminderText" class="form-control">
-                                        </div>
-
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="SEyebrowTopReminderText" class="form-control">
+                                    </div>
                                 </div>
 
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Double Full</label>
-                                        <div class="col-sm-8">
-                                            <input type="file" name="DEyebrowTopFull" />
-                                        </div>
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Single Full</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="SEyebrowTopFull" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Double Design</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="DFlatTopDesign" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="DFlatTopReminderText" class="form-control">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Double Full</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="DFlatTopFull" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Double Design</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="DRoundTopDesign" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="DRoundTopReminderText" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Double Full</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="DRoundTopFull" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Double Design</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="DEyebrowTopDesign" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Reminder Text</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="DEyebrowTopReminderText" class="form-control">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Double Full</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" name="DEyebrowTopFull" />
+                                    </div>
                                 </div>
                             </div>
 

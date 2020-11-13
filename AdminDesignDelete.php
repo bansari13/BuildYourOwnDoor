@@ -5,10 +5,10 @@
 global $CurrentFile;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $query = "DELETE FROM portfolio WHERE id=$id";
+    $query = "DELETE FROM Door WHERE id=$id";
     $result = mysqli_query($conn, $query);
 }
-echo("<script>location.href='AdminPortfolioList.php'</script>");
+echo("<script>location.href='AdminDesignList.php'</script>");
 exit();
 ?>
 
