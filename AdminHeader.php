@@ -114,13 +114,13 @@ if (!isset($sessionValue)) {
                             </a>
                         </li>
                         <li>
-                            <a href="AdminDesignList.php">
+                            <a href="AdminHandleList.php">
                                 <i class="fa fa-book"></i>
                                 <span>Handles</span>
                             </a>
                         </li>
                         <li>
-                            <a href="AdminDesignList.php">
+                            <a href="AdminLockList.php">
                                 <i class="fa fa-book"></i>
                                 <span>Locks</span>
 

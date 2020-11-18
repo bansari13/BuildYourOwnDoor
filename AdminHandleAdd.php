@@ -12,9 +12,8 @@ if (isset($_POST['update'])) {
         $file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
 
         $extensions = array("png");
-
         if (in_array($file_ext, $extensions) === false) {
-            $errors[] = "extension not allowed, please choose a PNG file.";
+            $errors[] = "extension not allowed, please choose a PNG file.Current extension is $file_ext";
         }
 
         if ($file_size > 2097152) {
@@ -30,9 +29,35 @@ if (isset($_POST['update'])) {
         }
     }
 
+    if (isset($_FILES['imageS'])) {
+        $errors = array();
+        $file_name = $_FILES['imageS']['name'];
+        $file_size = $_FILES['imageS']['size'];
+        $file_tmp = $_FILES['imageS']['tmp_name'];
+        $file_type = $_FILES['imageS']['type'];
+        $file_ext = strtolower(end(explode('.', $_FILES['imageS']['name'])));
+
+        $extensions = array("png");
+
+        if (in_array($file_ext, $extensions) === false) {
+            $errors[] = "extension not allowed, please choose a PNG file.Current extension is $file_ext";
+        }
+
+        if ($file_size > 2097152) {
+            $errors[] = 'File size must be excately 2 MB';
+        }
+
+        if (empty($errors) == true) {
+            $newfilenameS = time() . uniqid(rand()) . '.' . $file_ext;
+            move_uploaded_file($file_tmp, "images/Handles/" . $newfilenameS);
+            echo "Success";
+        } else {
+            print_r($errors);
+        }
+    }
 
     $title = $_POST['Name'];
-    $query = "INSERT INTO Handles (Name,Image) values ('$title','$newfilename')";
+    $query = "INSERT INTO Handles (Name,Image,SingleImage) values ('$title','$newfilename','$newfilenameS')";
     mysqli_query($conn, $query);
     $_SESSION['message'] = 'Updated Successfully';
     $_SESSION['message_type'] = 'warning';
@@ -79,9 +104,18 @@ if (isset($_POST['update'])) {
 
                                 <div class="col-sm-12">
                                     <div class="row">
-                                        <label for="example-text-input" class="col-sm-4 col-form-label">Image</label>
+                                        <label for="example-text-input" class="col-sm-4 col-form-label">For Double Door</label>
                                         <div class="col-sm-8">
                                             <input type="file" name="image" />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <label for="example-text-input" class="col-sm-4 col-form-label">For Single Door</label>
+                                        <div class="col-sm-8">
+                                            <input type="file" name="imageS" />
                                         </div>
                                     </div>
                                 </div>

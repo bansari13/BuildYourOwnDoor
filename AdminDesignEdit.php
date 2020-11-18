@@ -4,18 +4,47 @@
 global $id;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+
+    $CurrentImage1 = "";
+    $CurrentImage2 = "";
+    $CurrentImage3 = "";
+    $CurrentImage4 = "";
+    $CurrentImage5 = "";
+    $CurrentImage6 = "";
+    $ReminderText1 = "";
+    $ReminderText2 = "";
+    $ReminderText3 = "";
+    $ReminderText4 = "";
+    $ReminderText5 = "";
+    $ReminderText6 = "";
+    $CurrentFullImage1 = "";
+    $CurrentFullImage2 = "";
+    $CurrentFullImage3 = "";
+    $CurrentFullImage4 = "";
+    $CurrentFullImage5 = "";
+    $CurrentFullImage6 = "";
+
     $query = "SELECT D.ID as DoorID,D.Name as DoorName,DE.Image as DesignImage,DE.FrameID,DE.ReminderText from Door D INNER JOIN Designs DE on D.ID=DE.DoorID where D.ID=$id";
     $result = mysqli_query($conn, $query);
+
     while ($row = mysqli_fetch_assoc($result)) {
         $Title = $row["DoorName"];
-        $CurrentImage . $row['FrameID'] = $row['DesignImage'];
-        $ReminderText . $row['FrameID'] = $row['ReminderText'];
+        $ImageVariableName = 'CurrentImage' . $row['FrameID'];
+        $$ImageVariableName = $row['DesignImage'];
+        $ReminderTextVariableName = 'ReminderText' . $row['FrameID'];
+        $$ReminderTextVariableName = $row['ReminderText'];
     }
 
     $queryFull = "SELECT D.ID as DoorID,D.Name as DoorName,FD.Image as FulImage,FD.FrameID from Door D INNER JOIN FullDoor FD on D.ID=FD.DoorID where D.ID=$id";
-    $resultFull = mysqli_query($conn, $query);
-    while ($row = mysqli_fetch_assoc($resultFull)) {
-        $CurrentFullImage . $row['FrameID'] = $row['FulImage'];
+    $resultFull = mysqli_query($conn, $queryFull);
+    
+    $rows=mysqli_num_rows($resultFull);
+    echo 'rows'.$rows;
+    if ($rows >= 1) {
+        while ($rowFull = mysqli_fetch_assoc($resultFull)) {
+            $CurrentFullImageVariableName = 'CurrentFullImage' . $rowFull['FrameID'];
+            $$CurrentFullImageVariableName = $rowFull['FulImage'];
+        }
     }
 }
 if (isset($_POST['update'])) {
@@ -169,7 +198,7 @@ if (isset($_POST['update'])) {
             echo "Success";
 
             //Insert the Full Frame with Design
-            if (isset($_FILES['DFlatTopFull'])) {
+            if (isset($_FILES['DEyebrowTopFull'])) {
                 $errors = array();
                 $file_name = $_FILES['DEyebrowTopFull']['name'];
                 $file_size = $_FILES['DEyebrowTopFull']['size'];
@@ -426,7 +455,7 @@ if (isset($_POST['update'])) {
 
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Single Design</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentImage4; ?>" class="form-control"/>
+                                        <img src="images/Designs/<?php echo $CurrentImage4; ?>" class="img-responsive"/>
                                         <input type="file" name="SFlatTopDesign" />
                                     </div>
                                 </div>
@@ -444,7 +473,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Single Full</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentFullImage4; ?>" class="form-control"/>
+                                        <img src="images/FullFrames/<?php echo $CurrentFullImage4; ?>" class="img-responsive"/>
                                         <input type="file" name="SFlatTopFull" />
                                     </div>
                                 </div>
@@ -456,7 +485,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Single Design</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentImage6; ?>" class="form-control"/>
+                                        <img src="images/Designs/<?php echo $CurrentImage6; ?>" class="img-responsive"/>
                                         <input type="file" name="SRoundTopDesign" />
                                     </div>
                                 </div>
@@ -466,7 +495,6 @@ if (isset($_POST['update'])) {
                                     <div class="col-sm-8">
                                         <input type="text" name="SRoundTopReminderText" class="form-control" value="<?php echo $ReminderText6; ?>">
                                     </div>
-
                                 </div>
 
                             </div>
@@ -474,7 +502,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Single Full</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentFullImage6; ?>" class="form-control"/>
+                                        <img src="images/FullFrames/<?php echo $CurrentFullImage6; ?>" class="img-responsive"/>
                                         <input type="file" name="SRoundTopFull" />
                                     </div>
                                 </div>
@@ -485,7 +513,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Single Design</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentImage5; ?>" class="form-control"/>
+                                        <img src="images/Designs/<?php echo $CurrentImage5; ?>" class="img-responsive"/>
                                         <input type="file" name="SEyebrowTopDesign" />
                                     </div>
                                 </div>
@@ -502,7 +530,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Single Full</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentFullImage5; ?>" class="form-control"/>
+                                        <img src="images/FullFrames/<?php echo $CurrentFullImage5; ?>" class="img-responsive"/>
                                         <input type="file" name="SEyebrowTopFull" />
                                     </div>
                                 </div>
@@ -513,7 +541,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Double Design</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentImage1; ?>" class="form-control"/>
+                                        <img src="images/Designs/<?php echo $CurrentImage1; ?>" class="img-responsive"/>
                                         <input type="file" name="DFlatTopDesign" />
                                     </div>
                                 </div>
@@ -531,7 +559,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Flat Top Double Full</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentFullImage1; ?>" class="form-control"/>
+                                        <img src="images/FullFrames/<?php echo $CurrentFullImage1; ?>" class="img-responsive"/>
                                         <input type="file" name="DFlatTopFull" />
                                     </div>
                                 </div>
@@ -542,7 +570,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Double Design</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentImage3; ?>" class="form-control"/>
+                                        <img src="images/Designs/<?php echo $CurrentImage3; ?>" class="img-responsive"/>
                                         <input type="file" name="DRoundTopDesign" />
                                     </div>
                                 </div>
@@ -559,7 +587,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Round Top Double Full</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentFullImage3; ?>" class="form-control"/>
+                                        <img src="images/FullFrames/<?php echo $CurrentFullImage3; ?>" class="img-responsive"/>
                                         <input type="file" name="DRoundTopFull" />
                                     </div>
                                 </div>
@@ -570,7 +598,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Double Design</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentImage5; ?>" class="form-control"/>
+                                        <img src="images/Designs/<?php echo $CurrentImage2; ?>" class="img-responsive"/>
                                         <input type="file" name="DEyebrowTopDesign" />
                                     </div>
                                 </div>
@@ -588,7 +616,7 @@ if (isset($_POST['update'])) {
                                 <div class="col-sm-6">
                                     <label for="example-text-input" class="col-sm-4 col-form-label">Eyebrow Top Double Full</label>
                                     <div class="col-sm-8">
-                                        <img src="<?php echo $CurrentFullImage5; ?>" class="form-control"/>
+                                        <img src="images/FullFrames/<?php echo $CurrentFullImage2; ?>" class="img-responsive"/>
                                         <input type="file" name="DEyebrowTopFull" />
                                     </div>
                                 </div>

@@ -1,33 +1,55 @@
 <?php include('db.php'); ?>
-<div class="col-sm-3">
+<div class="col-md-3 col-sm-4">
     <div class="steps">
         <h1>Step 2 : Select Design</h1>
         <div class="gold-box">
             <h2>Designs inside Frames</h2>
-            <div id="owl2" class="owl-carousel owl-theme">
+            <div id="owl1" class="owl-carousel owl-theme">
                 <div class="row">
                     <?php
                     if (isset($_COOKIE["FrameID"])) {
                         $query = "SELECT * FROM Designs where FrameID=" . $_COOKIE["FrameID"];
                         $result_tasks = mysqli_query($conn, $query);
+                        $i = 0;
+                        $rows = mysqli_num_rows($result_tasks);
+                        $rowCounter = $rows;
+                        $divClosed = true;
                         while ($row = mysqli_fetch_assoc($result_tasks)) {
-                            ?>
-                            <div class="col-sm-6 col-xs-6 col-md-6">
-                                <a onclick="getDesign('images/Designs/<?php echo $row['Image']; ?>','<?php echo $row['ID']; ?>')">
-                                    <img src="images/Designs/<?php echo $row['Image']; ?>" class="img-responsive" alt="Image" />
-                                </a>
-                            </div>
-                        <?php }
-                    } ?>
+
+                            //If results are more than 6 then every 6th time add row and if not tha add a row
+                            if ((($rows > 6 && $i % 6 == 0) || ($rows <= 6 && $rows > 0)) && $divClosed) {
+                                ?>
+                                <div class="row">
+                                    <?php
+                                    $divClosed = false;
+                                    $rows = $rows - 6;
+                                }
+                                ?>
+                                <div class="col-sm-6 col-xs-6 col-md-6">
+                                    <a onclick="getDesign('images/Designs/<?php echo $row['Image']; ?>', '<?php echo $row['ID']; ?>', '<?php echo $row['DoorID']; ?>')">
+                                        <img src="images/Designs/<?php echo $row['Image']; ?>" class="img-responsive" alt="Image" />
+                                    </a>
+                                </div>
+                                <?php
+                                $rowCounter--;
+                                $i++;
+                                if (($i % 6 == 0 || $rowCounter == 0) && $i != 0) {
+                                    $divClosed = true;
+                                    ?>
+                                </div>
+                                <?php
+                            }
+                        }
+                    }
+                    ?>
                 </div>
             </div>
-            
+
         </div>
         <br />
-        <a onclick="go()" href="#">New Link</a>
         <div class="row">
             <div class="col-xs-6">
-                <a href="#">
+                <a href="#" onclick="replace('step2', 'step1');">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="20px" height="20px" viewBox="0 0 284.929 284.929" style="enable-background:new 0 0 284.929 284.929;"
                          xml:space="preserve">
@@ -47,7 +69,7 @@
                 </a>
             </div>
             <div class="col-xs-6">
-                <a href="#">
+                <a href="#" onclick="replace('step2', 'step3');">
                     <svg style="float: right;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="20px" height="20px" viewBox="0 0 284.936 284.936" style="enable-background:new 0 0 284.936 284.936;"
                          xml:space="preserve">
