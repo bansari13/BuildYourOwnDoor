@@ -1,3 +1,9 @@
+$(document).ready(function(){
+   deleteCookie('FrameID'); 
+   deleteCookie('DoorID'); 
+   deleteCookie('DesignID'); 
+});
+
 function getFrame(path, id)
 {
     stage = new Konva.Stage({
@@ -169,3 +175,6 @@ function createCookie(name, value, days) {
     document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
 }
 
+function deleteCookie(name) {
+  document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}

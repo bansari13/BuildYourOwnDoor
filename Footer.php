@@ -15,9 +15,41 @@
     });
 </script>
 <script>
-    function replace(hide,show) {
-        document.getElementById(hide).style.display = "none";
-        document.getElementById(show).style.display = "block";
+    function replace(hide, show) {
+        debugger;
+        var frameID=getCookie('FrameID');
+        var designID=getCookie('DesignID');
+        if (hide === 'step1' && frameID===null)
+        {
+            alert('Please select a frame');
+        } 
+        else if (hide === 'step2' && designID===null)
+        {
+            alert('Please select a design');
+        } 
+        else
+        {
+            document.getElementById(hide).style.display = "none";
+            document.getElementById(show).style.display = "block";
+        }
+    }
+
+    function getCookie(name) {
+        var cookie = document.cookie;
+        var prefix = name + "=";
+        var begin = cookie.indexOf("; " + prefix);
+        if (begin == -1) {
+            begin = cookie.indexOf(prefix);
+            if (begin != 0)
+                return null;
+        } else {
+            begin += 2;
+            var end = document.cookie.indexOf(";", begin);
+            if (end == -1) {
+                end = cookie.length;
+            }
+        }
+        return unescape(cookie.substring(begin + prefix.length, end));
     }
 </script>
 </body>
