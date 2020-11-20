@@ -1,3 +1,15 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+<?php
+if(!isset($_SESSION['CustomerName']))
+{
+    echo("<script>location.href='index.php'</script>");
+}
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -38,9 +50,9 @@
                     <span class='menu wow fadeIn'><span class='hamburger'></span></span>
                     <ul>
                         <li><a href='https://www.wroughtironshop.com.au/'>Back to Website</a> </li>
-                        <li><a href="index.php">Home</a></li>
+                        <li><a href="CreateDoor.php">Home</a></li>
                         <li><a href='userprofile.php'>My Profile</a> </li>
-                        <li><a href="login.php">Login</a></li>
+                        <li><a href="index.php">Login</a></li>
                     </ul>
                 </label>
             </div>

@@ -16,7 +16,6 @@
 </script>
 <script>
     function replace(hide, show) {
-        debugger;
         var frameID=getCookie('FrameID');
         var designID=getCookie('DesignID');
         if (hide === 'step1' && frameID===null)

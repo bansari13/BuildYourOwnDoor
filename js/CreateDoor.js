@@ -1,7 +1,8 @@
-$(document).ready(function(){
-   deleteCookie('FrameID'); 
-   deleteCookie('DoorID'); 
-   deleteCookie('DesignID'); 
+var stage;
+$(document).ready(function () {
+    deleteCookie('FrameID');
+    deleteCookie('DoorID');
+    deleteCookie('DesignID');
 });
 
 function getFrame(path, id)
@@ -9,62 +10,67 @@ function getFrame(path, id)
     stage = new Konva.Stage({
         container: 'container',
         width: 780,
-        height: 658,
+        height: 658
     });
     var layer = new Konva.Layer();
-    stage.add(layer);
-    // main API:
-    var imageObj = new Image();
 
-    imageObj.onload = function () {
-        var yoda = new Konva.Image({
+    // main API:
+    var frameImage = new Image();
+
+    frameImage.onload = function () {
+        var frame = new Konva.Image({
             x: 150,
             y: 35,
-            image: imageObj,
+            image: frameImage,
             width: 450,
             height: 600
         });
 
         // add the shape to the layer
-        layer.add(yoda);
-        layer.draw();
+        layer.add(frame);
+        layer.batchDraw();
     };
-    imageObj.src = path;
+    frameImage.src = path;
+    stage.add(layer);
     $('#frameID').val(id);
     createCookie("FrameID", id, "10");
     event.preventDefault();
     $('#step2').load('Designs.php');
+    $('#reminderText').load('ReminderText.php');
 }
+
+var designLayer = new Konva.Layer();
 function getDesign(path, id, doorID)
 {
-    var layer = new Konva.Layer();
-    stage.add(layer);
+    designLayer.destroyChildren();
+    stage.add(designLayer);
     // main API:
-    var imageObj = new Image();
-    imageObj.onload = function () {
-        var yoda = new Konva.Image({
+    var DesignImage = new Image();
+    DesignImage.onload = function () {
+        var design = new Konva.Image({
             x: 150,
             y: 35,
-            image: imageObj,
+            image: DesignImage,
             width: 450,
             height: 600
         });
 
         // add the shape to the layer
-        layer.add(yoda);
-        layer.draw();
+        designLayer.add(design);
+        designLayer.draw();
     };
-    imageObj.src = path;
+    DesignImage.src = path;
     createCookie("DesignID", id, "10");
     createCookie("DoorID", doorID, "10");
     event.preventDefault();
     $('#reminderText').load('ReminderText.php');
 }
 
+var handleLayer = new Konva.Layer();
 function getHandle(path)
 {
-    var layer = new Konva.Layer();
-    stage.add(layer);
+    handleLayer.destroyChildren();
+    stage.add(handleLayer);
     // main API:
     var imageObj = new Image();
     imageObj.onload = function () {
@@ -77,8 +83,8 @@ function getHandle(path)
         });
 
         // add the shape to the layer
-        layer.add(yoda);
-        layer.draw();
+        handleLayer.add(yoda);
+        handleLayer.draw();
     };
     imageObj.src = path;
 }
@@ -120,11 +126,12 @@ function createCompositedCanvas(img1, img2) {
 // end attibuted code
 
 
-function AddTexture(texturePath,imagePath) {
+function AddTexture(texturePath, imagePath) {
     debugger;
 
 //    var imagebase64 = stage.toDataURL();
     var img1 = new Image();
+    img1.src = imagePath;
 //    $.ajax({
 //        type: "POST",
 //        url: "SaveImage.php",
@@ -133,20 +140,24 @@ function AddTexture(texturePath,imagePath) {
 //        },
 //        success: function (data) {
 //            alert(data);
-            img1.src = imagePath;
-            stage = new Konva.Stage({
-                container: 'container',
-                width: 780,
-                height: 658
-            });
 
-            var img2 = new Image();
-            img2.src = texturePath;
-            var layer = new Konva.Layer();
-            stage.add(layer);
-            // create composited canvas
+
+    var img2 = new Image();
+    img2.src = texturePath;
+
+    stage = new Konva.Stage({
+        container: 'container',
+        width: 780,
+        height: 658
+    });
+
+    var layer = new Konva.Layer();
+    stage.add(layer);
+    var cnt = 2;
+    img1.onload = img2.onload = function () {
+        if (!--cnt)
+        {
             var canvas = createCompositedCanvas(img1, img2);
-            // use the in-memory canvas as an image source for Konva.Image
             var img = new Konva.Image({
                 x: 150,
                 y: 35,
@@ -156,6 +167,27 @@ function AddTexture(texturePath,imagePath) {
             });
             layer.add(img);
             layer.draw();
+        }
+    };
+    // create composited canvas
+
+    // use the in-memory canvas as an image source for Konva.Image
+
+//    var imageObj = new Image();
+//    imageObj.onload = function () {
+//        var yoda = new Konva.Image({
+//            x: 150,
+//            y: 35,
+//            image: canvas,
+//            width: 450,
+//            height: 600
+//        });
+//
+//        // add the shape to the layer
+//        layer.add(yoda);
+//        layer.draw();
+//    };
+
 //        }
 //    }).done(function (o) {
 //        console.log('saved');
@@ -176,5 +208,5 @@ function createCookie(name, value, days) {
 }
 
 function deleteCookie(name) {
-  document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
