@@ -5,44 +5,42 @@
         <div class="gold-box">
             <h2>Designs inside Frames</h2>
             <div id="owl1" class="owl-carousel owl-theme">
-                <div class="row">
-                    <?php
-                    if (isset($_COOKIE["FrameID"])) {
-                        $query = "SELECT * FROM Designs where FrameID=" . $_COOKIE["FrameID"];
-                        $result_tasks = mysqli_query($conn, $query);
-                        $i = 0;
-                        $rows = mysqli_num_rows($result_tasks);
-                        $rowCounter = $rows;
-                        $divClosed = true;
-                        while ($row = mysqli_fetch_assoc($result_tasks)) {
+                <?php
+                if (isset($_COOKIE["FrameID"])) {
+                    $query = "SELECT * FROM Designs where FrameID=" . $_COOKIE["FrameID"];
+                    $result_tasks = mysqli_query($conn, $query);
+                    $i = 0;
+                    $rows = mysqli_num_rows($result_tasks);
+                    $rowCounter = $rows;
+                    $divClosed = true;
+                    while ($row = mysqli_fetch_assoc($result_tasks)) {
 
-                            //If results are more than 6 then every 6th time add row and if not tha add a row
-                            if ((($rows > 6 && $i % 6 == 0) || ($rows <= 6 && $rows > 0)) && $divClosed) {
-                                ?>
-                                <div class="row">
-                                    <?php
-                                    $divClosed = false;
-                                    $rows = $rows - 6;
-                                }
-                                ?>
-                                <div class="col-sm-6 col-xs-6 col-md-6">
-                                    <a onclick="getDesign('images/Designs/<?php echo $row['Image']; ?>', '<?php echo $row['ID']; ?>', '<?php echo $row['DoorID']; ?>')">
-                                        <img src="images/Designs/<?php echo $row['Image']; ?>" class="img-responsive" alt="Image" />
-                                    </a>
-                                </div>
+                        //If results are more than 6 then every 6th time add row and if not tha add a row
+                        if ((($rows > 6 && $i % 6 == 0) || ($rows <= 6 && $rows > 0)) && $divClosed) {
+                            ?>
+                            <div class="row">
                                 <?php
-                                $rowCounter--;
-                                $i++;
-                                if (($i % 6 == 0 || $rowCounter == 0) && $i != 0) {
-                                    $divClosed = true;
-                                    ?>
-                                </div>
-                                <?php
+                                $divClosed = false;
+                                $rows = $rows - 6;
                             }
+                            ?>
+                            <div class="col-sm-6 col-xs-6 col-md-6">
+                                <a onclick="getDesign('images/Designs/<?php echo $row['Image']; ?>', '<?php echo $row['ID']; ?>', '<?php echo $row['DoorID']; ?>')">
+                                    <img src="images/Designs/<?php echo $row['Image']; ?>" class="img-responsive" alt="Image" />
+                                </a>
+                            </div>
+                            <?php
+                            $rowCounter--;
+                            $i++;
+                            if (($i % 6 == 0 || $rowCounter == 0) && $i != 0) {
+                                $divClosed = true;
+                                ?>
+                            </div>
+                            <?php
                         }
                     }
-                    ?>
-                </div>
+                }
+                ?>
             </div>
 
         </div>
