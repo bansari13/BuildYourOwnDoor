@@ -51,8 +51,8 @@ if(!isset($_SESSION['CustomerName']))
                     <ul>
                         <li><a href='https://www.wroughtironshop.com.au/'>Back to Website</a> </li>
                         <li><a href="CreateDoor.php">Home</a></li>
-                        <li><a href='userprofile.php'>My Profile</a> </li>
-                        <li><a href="index.php">Login</a></li>
+                        <li><a href='UserProfile.php'>My Profile</a> </li>
+                        <li><a href="UserDesigns.php">My Designs</a></li>
                     </ul>
                 </label>
             </div>
