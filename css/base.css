@@ -18,7 +18,7 @@ h1::after{content: ''; display: block; width: 57px; height: 2px;background-color
 .logo{padding: 20px;}
 .clr-white{color: #fff !important;}
 .clr-gold{color: #b38c4d;}
-.containerStyle {height: 658px; border: 2px solid #b38c4d; background: #fff;}
+.containerStyle {height: 758px; border: 2px solid #b38c4d; background: #fff;}
 
 /*Navigation*/
 .navigation{position: absolute; z-index: 999; width: 100%; background-color: #000; top: 0;}
@@ -40,22 +40,23 @@ label a:hover, label a:focus{color: #fff;transition: 0.3s;}
 .nav-links a:hover {color: #fff; transition: 0.3s;}
 
 /*Steps*/
-.steps{height: 658px;border: 2px solid #b38c4d; padding: 20px; background-color: #fff;}
+.steps{height: 758px;border: 2px solid #b38c4d; padding: 20px; background-color: #fff;}
 .steps h1{color: #b38c4d; text-align: center;}
 .steps h1:after{margin: 12px auto;}
 .steps h2{color: #fff; font-size: 20px; margin-bottom: 20px; text-align: center; background-color: #b38c4d; padding: 5px 0;}
 .steps .owl-theme .owl-controls .owl-page span { width: 15px; height: 4px; margin: 5px; background: #b38c4d;}
 .gold-box{border: 2px solid #b38c4d; margin: 5px;}
+.gold-box img{margin-bottom: 10px;}
 
 /*Reminder*/
 .reminder p{font-size: 18px; vertical-align: middle; display: table-cell;}
-.reminder {width: 100%; height: 658px; border: 2px solid #b38c4d; padding: 5px; display: table;}
+.reminder {width: 100%; height: 758px; border: 2px solid #b38c4d; padding: 5px; display: table;}
 
 /*Canvas*/
-canvas{width:100%; height: 740px; border: 2px solid #b38c4d; background: #fff;}
+canvas{width:100%; height: 720px; border: 2px solid #b38c4d; background: #fff;}
 
 /*Login Page*/
-.book-box{margin-top: 150px; border: 2px solid #b38c4d; padding: 60px; /*background-color: #000;*/}
+.book-box{margin-top: 150px; border: 2px solid #b38c4d; padding: 60px; background-color: rgba(0, 0, 0, 0.8);}
 .form-control, .contact textarea {height: 48px; background-color: transparent; color: #fff; font-size: 16px; border-radius: 0; border-color: #b38c4d; box-shadow: none;}
 .form-control:focus {border-color: #b38c4d; box-shadow: none;}
 .book-box .tab-pane {margin-top: 40px;}
@@ -71,10 +72,10 @@ canvas{width:100%; height: 740px; border: 2px solid #b38c4d; background: #fff;}
 .send .contactbtn:hover:after{display: none;}
 .form-control::placeholder {color: #fff; opacity: 1;}
 .login-bg{background: url(../images/login-bg.png) top center no-repeat; height: 600px;}
-.login-bg .navigation{background-color: transparent;}
+.login-bg .navigation{background-color: rgba(0, 0, 0, 0.8);}
 
 /*User Profile*/
-.user-profile{padding-top: 150px; background: url(../images/login-bg.png) top center no-repeat; height: 700px;}
+.user-profile{padding: 40px; border: 2px solid #b38c4d;}
 .user-profile h1:after{margin: 20px auto;}
 
 .design-gallery{padding-top: 25px;}

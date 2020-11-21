@@ -32,10 +32,12 @@ if (isset($_POST['contactbtn'])) {
     echo("<script>alert('Information Updated')</script>");
 }
 ?>
-<section class="user-profile">
+<br><br>
+    <section>
         <div class="container">
             <div class="row">
                 <div class="col-sm-offset-2 col-sm-8">
+                    <div class="user-profile">
                     <h1 class="text-center">Edit Details</h1>
                     <br /><br />
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -72,9 +74,11 @@ if (isset($_POST['contactbtn'])) {
                             </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 
 <?php include('Footer.php'); ?>

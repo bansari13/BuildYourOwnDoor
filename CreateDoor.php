@@ -173,7 +173,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="step4" style="display: none;">
                     <div class="col-md-3 col-sm-4">
                         <div class="steps">
