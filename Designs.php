@@ -4,7 +4,7 @@
         <h1>Step 2 : Select Design</h1>
         <div class="gold-box">
             <h2>Designs inside Frames</h2>
-            <div id="owl1" class="owl-carousel owl-theme">
+            <div id="owlD" class="owl-carousel owl-theme">
                 <?php
                 if (isset($_COOKIE["FrameID"])) {
                     $query = "SELECT * FROM Designs where FrameID=" . $_COOKIE["FrameID"];
@@ -89,5 +89,20 @@
         </div>
     </div>
 </div>
-<?php include('Footer.php'); ?>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/konva/7.1.3/konva.min.js"></script>
+<script src="js/CreateDoor.js"></script>
+<script>
+    $("#owlD").owlCarousel({
+        autoPlay: true,
+        items: 1,
+        pagination: true,
+        paginationSpeed: 150,
+        itemsMobile: [479, 2],
+        itemsDesktopSmall: [1024, 1],
+        itemsTablet: [768, 1]
+    });
+</script>
 

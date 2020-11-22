@@ -1,9 +1,9 @@
 var stage;
-$(document).ready(function () {
-    deleteCookie('FrameID');
-    deleteCookie('DoorID');
-    deleteCookie('DesignID');
-});
+//$(document).ready(function () {
+//    deleteCookie('FrameID');
+//    deleteCookie('DoorID');
+//    deleteCookie('DesignID');
+//});
 
 function getFrame(path, id)
 {

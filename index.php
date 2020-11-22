@@ -70,34 +70,6 @@ if (isset($_POST['Register'])) {
         <![endif]-->
     </head>
     <body class="login-bg">
-        <!--Navigation-->
-        <div class="navigation wow fadeIn">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3 col-sm-4">
-                        <a href="index.html" class="logo">
-                            <img src="images/logo.png" class="img-responsive" alt="Company Logo" />
-                        </a>
-                    </div>
-                    <!--<div class="col-md-offset-5 col-md-4 col-sm-offset-4">
-                        <div class="nav-links">
-                            <a href="product-listing.html">Our Products</a>
-                            <a href="about-us.aspx">About Us</a>
-                        </div>
-                    </div>-->
-                    <label>
-                        <input type='checkbox'>
-                        <span class='menu wow fadeIn'><span class='hamburger'></span></span>
-                        <ul>
-                            <li><a href='https://www.wroughtironshop.com.au/'>Back to Website</a> </li>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href='UserProfile.php'>My Profile</a> </li>
-                            <li><a href="index.php">Login</a></li>
-                        </ul>
-                    </label>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-offset-2 col-sm-8">
