@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $sessionValue = $_SESSION['Name'];
 if (!isset($sessionValue)) {
     echo("<script>location.href='AdminLogin.php'</script>");

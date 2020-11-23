@@ -64,6 +64,7 @@ function getDesign(path, id, doorID)
     createCookie("DoorID", doorID, "10");
     event.preventDefault();
     $('#reminderText').load('ReminderText.php');
+    $('#step3').load('AddTexture.php');
 }
 
 var handleLayer = new Konva.Layer();
