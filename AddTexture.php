@@ -53,7 +53,7 @@
         <br />
         <div class="row">
             <div class="col-xs-6">
-                <a href="#" onclick="replace('step3', 'step2');">
+                <a href="#" onclick="replace('step3', 'step1');">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="20px" height="20px" viewBox="0 0 284.929 284.929" style="enable-background:new 0 0 284.929 284.929;"
                          xml:space="preserve">

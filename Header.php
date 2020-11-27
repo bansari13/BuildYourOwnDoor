@@ -29,7 +29,7 @@ if(!isset($_SESSION['CustomerName']))
       <script src="js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body onload="resetPage()">
     <!--Navigation-->
     <div class="navigation wow fadeIn">
         <div class="container-fluid">

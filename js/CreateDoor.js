@@ -1,9 +1,4 @@
-var stage;
-//$(document).ready(function () {
-//    deleteCookie('FrameID');
-//    deleteCookie('DoorID');
-//    deleteCookie('DesignID');
-//});
+var stage,textureSelected=false,handleSelected=false;
 
 function getFrame(path, id)
 {
@@ -37,15 +32,22 @@ function getFrame(path, id)
     event.preventDefault();
     $('#step2').load('Designs.php');
     $('#reminderText').load('ReminderText.php');
+    handleSelected=false;
+    textureSelected=false;
 }
 
 var designLayer = new Konva.Layer();
 function getDesign(path, id, doorID)
 {
-    designLayer.destroyChildren();
+    var existingLayer = stage.getLayers()[1];
+    if (typeof existingLayer !== 'undefined')
+    {
+        existingLayer.destroy();
+    }
     stage.add(designLayer);
     // main API:
     var DesignImage = new Image();
+
     DesignImage.onload = function () {
         var design = new Konva.Image({
             x: 150,
@@ -70,7 +72,21 @@ function getDesign(path, id, doorID)
 var handleLayer = new Konva.Layer();
 function getHandle(path)
 {
-    handleLayer.destroyChildren();
+    //If texture is selected stage is resetted
+    
+    //If we have texuture this becomes layer 1(Texture-Handle)
+    if (typeof existingLayer !== 'undefined' && textureSelected)
+    {
+        var existingLayer = stage.getLayers()[1];
+        existingLayer.destroy();
+    }
+    
+    //Else this becomes layer 3(Frame-Design-Handle)
+    else if (typeof existingLayer !== 'undefined' && !textureSelected)
+    {
+        var existingLayer = stage.getLayers()[3];
+        existingLayer.destroy();
+    }
     stage.add(handleLayer);
     // main API:
     var imageObj = new Image();
@@ -86,6 +102,59 @@ function getHandle(path)
         // add the shape to the layer
         handleLayer.add(yoda);
         handleLayer.draw();
+    };
+    imageObj.src = path;
+    handleSelected=true;
+}
+
+
+var lockLayer = new Konva.Layer();
+function getLock(path)
+{
+    //If texture is selected stage is resetted
+    
+    //If we have texuture and handle this becomes layer 2(Texture-Handle-Lock)
+    if (typeof existingLayer !== 'undefined' && textureSelected && handleSelected)
+    {
+        var existingLayer = stage.getLayers()[2];
+        existingLayer.destroy();
+    }
+    
+    //If we have texuture and not handle this becomes layer 1(Texture-Lock)
+    else if (typeof existingLayer !== 'undefined' && textureSelected && !handleSelected)
+    {
+        var existingLayer = stage.getLayers()[1];
+        existingLayer.destroy();
+    }
+    
+    //If we donot have texuture and handle is selected this becomes layer 3(Frame-Design-Handle-Lock)
+    else if (typeof existingLayer !== 'undefined' && !textureSelected && handleSelected)
+    {
+        var existingLayer = stage.getLayers()[3];
+        existingLayer.destroy();
+    }
+    
+    //If we donot have texuture and not handle this becomes layer 2(Frame-Design-Lock)
+    else if (typeof existingLayer !== 'undefined' && !textureSelected && !handleSelected)
+    {
+        var existingLayer = stage.getLayers()[2];
+        existingLayer.destroy();
+    }
+    stage.add(lockLayer);
+    // main API:
+    var imageObj = new Image();
+    imageObj.onload = function () {
+        var yoda = new Konva.Image({
+            x: 325,
+            y: 260,
+            image: imageObj,
+            width: 100,
+            height: 150
+        });
+
+        // add the shape to the layer
+        lockLayer.add(yoda);
+        lockLayer.draw();
     };
     imageObj.src = path;
 }
@@ -130,18 +199,9 @@ function createCompositedCanvas(img1, img2) {
 function AddTexture(texturePath, imagePath) {
     debugger;
 
-//    var imagebase64 = stage.toDataURL();
+
     var img1 = new Image();
     img1.src = imagePath;
-//    $.ajax({
-//        type: "POST",
-//        url: "SaveImage.php",
-//        data: {
-//            img: imagebase64
-//        },
-//        success: function (data) {
-//            alert(data);
-
 
     var img2 = new Image();
     img2.src = texturePath;
@@ -170,6 +230,7 @@ function AddTexture(texturePath, imagePath) {
             layer.draw();
         }
     };
+    textureSelected=true;
     // create composited canvas
 
     // use the in-memory canvas as an image source for Konva.Image
@@ -196,18 +257,20 @@ function AddTexture(texturePath, imagePath) {
 
 }
 
-function createCookie(name, value, days) {
-    var expires;
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
-    } else {
-        expires = "";
-    }
-    document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+function saveCustomerDesign()
+{
+    var imagebase64 = stage.toDataURL();
+    $.ajax({
+        type: "POST",
+        url: "SaveImage.php",
+        data: {
+            img: imagebase64
+        },
+        success: function (data) {
+            console.log(data);
+            event.preventDefault();
+            $('#step6').load('FinalStep.php');
+        }
+    });
 }
 
-function deleteCookie(name) {
-    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
