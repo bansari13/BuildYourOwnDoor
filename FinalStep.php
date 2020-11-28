@@ -1,4 +1,5 @@
 <?php
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -12,9 +13,10 @@ if (session_status() == PHP_SESSION_NONE) {
                 <div>
                     <img src="images/FullFrames/<?php echo $_SESSION['CurrentDesign']; ?>" class="img-responsive" alt="Image" />
                     <div class="text-center">
-                        <button type="button" class="stepbtn">Upload Your House Image</button>
-                        <button type="button" class="stepbtn">Add Created Image</button>
-                        <button type="button" class="stepbtn">Send Email For Enquiry</button>
+                        <input type="file" class="stepbtn" id="fileUpload" style="display: none;" />
+                        <input type="button" value="Upload Your House Image" class="stepbtn" onclick="document.getElementById('fileUpload').click();" />
+                        <button type="button" class="stepbtn" onclick="addCurrentImage('images/FullFrames/<?php echo $_SESSION['CurrentDesign']; ?>')">Add Created Image</button>
+                        <button type="button" class="stepbtn" onclick="SendMail()">Send Email For Enquiry</button>
                     </div>
                 </div> 
             </div>
@@ -44,3 +46,7 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
     </div>
 </div>
+<script>
+    const EL = (sel) => document.querySelector(sel);
+    EL("#fileUpload").addEventListener("change", readImage);
+</script>
