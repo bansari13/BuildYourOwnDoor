@@ -32,7 +32,7 @@
                         }
                         ?>
                         <div class="col-sm-6 col-xs-6 col-md-6">
-                            <a onclick="AddTexture('images/Colors/<?php echo $row['Image']; ?>', 'images/FullFrames/<?php echo $fullFrame != NULL ? $fullFrame : '5fb0fff020310.png'; ?>')">
+                            <a onclick="AddTexture('images/Colors/<?php echo $row['Image']; ?>', 'images/FullFrames/<?php echo $fullFrame != NULL ? $fullFrame : 'png-20.png'; ?>')">
                                 <img src="images/Colors/<?php echo $row['Image']; ?>" class="img-responsive" alt="Image" />
                             </a>
                         </div>

@@ -92,11 +92,11 @@ function getHandle(path)
     var imageObj = new Image();
     imageObj.onload = function () {
         var yoda = new Konva.Image({
-            x: 325,
-            y: 260,
+            x: 295,
+            y: 243,
             image: imageObj,
-            width: 100,
-            height: 150
+            width: 160,
+            height: 180
         });
 
         // add the shape to the layer
@@ -160,7 +160,6 @@ function getLock(path)
 }
 
 function createCompositedCanvas(img1, img2) {
-    debugger;
     // create canvas
     canvas = document.createElement("canvas");
     ctx = canvas.getContext("2d");
@@ -168,7 +167,7 @@ function createCompositedCanvas(img1, img2) {
     canvas.height = 600;
     //img1.style.backgroundColor = "rgba(0, 0, 0, 1)";
     // create a pattern  
-    ctx.fillStyle = ctx.createPattern(img2, "repeat");
+    ctx.fillStyle = ctx.createPattern(img2, "no-repeat");
     // fill canvas with pattern
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     // use blending mode lighter so that all the dimensions are preserved
@@ -182,7 +181,7 @@ function createCompositedCanvas(img1, img2) {
     // use blending mode multiply to make it darker as the image is too light
     ctx.globalCompositeOperation = "multiply";
     // create a pattern  
-    ctx.fillStyle = ctx.createPattern(img2, "repeat");
+    ctx.fillStyle = ctx.createPattern(img2, "no-repeat");
     // fill canvas with pattern
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     // use composition mode destination-in to draw a cut-out sofa this time darker
@@ -202,6 +201,7 @@ function AddTexture(texturePath, imagePath) {
 
     var img2 = new Image();
     img2.src = texturePath;
+    
 
     stage = new Konva.Stage({
         container: 'container',
