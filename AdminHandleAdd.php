@@ -3,7 +3,9 @@
 <?php
 if (isset($_POST['update'])) {
 
-    if (isset($_FILES['image'])) {
+    $newfilename=NULL;
+    $newfilenameS=NULL;
+    if (isset($_FILES['image']) && !empty($_FILES['image']['name'])) {
         $errors = array();
         $file_name = $_FILES['image']['name'];
         $file_size = $_FILES['image']['size'];
@@ -22,8 +24,8 @@ if (isset($_POST['update'])) {
 
         if (empty($errors) == true) {
             $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
-            move_uploaded_file($file_tmp, "images/Handles" . $newfilename);
-            echo "Success";
+            move_uploaded_file($file_tmp, "images/Handles/" . $newfilename);
+            echo "<script>console.log(' File Uploaded .$newfilename.')</script>";
         } else {
             print_r($errors);
         }
@@ -31,26 +33,26 @@ if (isset($_POST['update'])) {
 
     if (isset($_FILES['imageS'])) {
         $errors = array();
-        $file_name = $_FILES['imageS']['name'];
-        $file_size = $_FILES['imageS']['size'];
-        $file_tmp = $_FILES['imageS']['tmp_name'];
-        $file_type = $_FILES['imageS']['type'];
-        $file_ext = strtolower(end(explode('.', $_FILES['imageS']['name'])));
+        $file_nameS = $_FILES['imageS']['name'];
+        $file_sizeS = $_FILES['imageS']['size'];
+        $file_tmpS = $_FILES['imageS']['tmp_name'];
+        $file_typeS = $_FILES['imageS']['type'];
+        $file_extS = strtolower(end(explode('.', $_FILES['imageS']['name'])));
 
         $extensions = array("png");
 
-        if (in_array($file_ext, $extensions) === false) {
-            $errors[] = "extension not allowed, please choose a PNG file.Current extension is $file_ext";
+        if (in_array($file_extS, $extensions) === false) {
+            $errors[] = "extension not allowed, please choose a PNG file.Current extension is $file_extS";
         }
 
-        if ($file_size > 2097152) {
+        if ($file_sizeS > 2097152) {
             $errors[] = 'File size must be excately 2 MB';
         }
 
         if (empty($errors) == true) {
-            $newfilenameS = time() . uniqid(rand()) . '.' . $file_ext;
-            move_uploaded_file($file_tmp, "images/Handles/" . $newfilenameS);
-            echo "Success";
+            $newfilenameS = time() . uniqid(rand()) . '.' . $file_extS;
+            move_uploaded_file($file_tmpS, "images/Handles/" . $newfilenameS);
+            echo "<script>console.log('Single File Uploaded .$newfilenameS.')</script>";
         } else {
             print_r($errors);
         }
@@ -62,6 +64,7 @@ if (isset($_POST['update'])) {
     $_SESSION['message'] = 'Updated Successfully';
     $_SESSION['message_type'] = 'warning';
 
+    
     echo("<script>location.href='AdminHandleList.php'</script>");
     exit();
 }

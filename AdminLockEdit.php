@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
 
         if (empty($errors) == true) {
             $newfilename = time() . uniqid(rand()) . '.' . $file_ext;
-            move_uploaded_file($file_tmp, "images/Locks" . $newfilename);
+            move_uploaded_file($file_tmp, "images/Locks/" . $newfilename);
             echo "Success";
         } else {
             print_r($errors);

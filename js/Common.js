@@ -10,6 +10,7 @@ $(".owl-carousel").owlCarousel({
 
 function resetPage() {
     deleteCookie('FrameID');
+    deleteCookie('FrameName');
     deleteCookie('DoorID');
     deleteCookie('DesignID');
 }

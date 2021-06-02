@@ -1,6 +1,6 @@
 var stage, textureSelected = false, handleSelected = false;
 
-function getFrame(path, id)
+function getFrame(path, id, name)
 {
     stage = new Konva.Stage({
         container: 'container',
@@ -29,8 +29,10 @@ function getFrame(path, id)
     stage.add(layer);
     $('#frameID').val(id);
     createCookie("FrameID", id, "10");
+    createCookie("FrameName", name, "10");
     event.preventDefault();
     $('#step2').load('Designs.php');
+    
     $('#reminderText').load('ReminderText.php');
     handleSelected = false;
     textureSelected = false;
@@ -67,13 +69,19 @@ function getDesign(path, id, doorID)
     event.preventDefault();
     $('#reminderText').load('ReminderText.php');
     $('#step3').load('AddTexture.php');
+    $('#step4').load('Handle.php');
 }
 
 var handleLayer = new Konva.Layer();
 function getHandle(path)
 {
+    debugger;
     //If texture is selected stage is resetted
-
+    var existingLayer;
+    if(textureSelected)
+        existingLayer= stage.getLayers()[1];
+    else
+        existingLayer= stage.getLayers()[2];
     //If we have texuture this becomes layer 1(Texture-Handle)
     if (typeof existingLayer !== 'undefined' && textureSelected)
     {
@@ -84,7 +92,7 @@ function getHandle(path)
     //Else this becomes layer 3(Frame-Design-Handle)
     else if (typeof existingLayer !== 'undefined' && !textureSelected)
     {
-        var existingLayer = stage.getLayers()[3];
+        var existingLayer = stage.getLayers()[2];
         existingLayer.destroy();
     }
     stage.add(handleLayer);
